@@ -1,0 +1,126 @@
+Jurisdiction
+- select all
+- miami
+
+PrEP
+- select all
+- can mail or deliver meds:
+  * always
+  * sometimes
+- cost coverage options
+  * medication at no cost
+  * other financial assistance available *  <- "contact site for more info"
+  * visits and labs at no cost
+- free or subsidized rides
+  * free rides
+  * sometimes free or subsidized rides
+- latino lgbtq providers available
+- lgbtq providers available
+- new delivery options
+  * injectable PrEP available
+  * PrEP on demand / 2-1-1 available
+- on-site patient navigators
+- services available nights/evenings
+- site offers rapid PrEP *   <- "site can provide PrEP medication on the same day as the first appt" 
+- spanish speaking providers
+- telehealth
+- walk-in services
+
+PEP
+- select all
+- can mail or deliver meds:
+  * always
+  * sometimes
+- cost coverage options
+  * medication at no cost
+  * other financial assistance available *  <- "contact site for more info"
+  * visits and labs at no cost
+- free or subsidized rides
+  * free rides
+  * sometimes free or subsidized rides
+- latino lgbtq providers available
+- lgbtq providers available
+- on-site patient navigators
+- rapid or same day services
+  * full supply available *  <- contact site for more info
+  * starter packs available *  <- contact site for more info
+- services available nights/evenings
+- spanish speaking providers
+- telehealth
+- walk-in services
+
+HIV Treatment
+- select all
+- can mail or deliver meds:
+  * always
+  * sometimes
+- cost coverage options
+  * medication at no cost
+  * other financial assistance available *  <- "contact site for more info"
+  * visits and labs at no cost
+- free or subsidized rides
+  * free rides
+  * sometimes free or subsidized rides
+- injectable ART available
+- latino lgbtq providers available
+- lgbtq providers available
+- on-site patient navigators
+  * patient navigators
+  * Ryan White Case managers
+- rapid HIV treatment available *  <- contact the site for more info
+- services available nights/evenings
+- spanish speaking providers
+- telehealth
+- walk-in services
+
+HIV/STI Testing
+- select all
+- HIV Testing - Confirmatory
+- HIV Testing - Rapid 
+- STI Testing
+- STI Treatment
+
+Mental Health & Substance Use
+- select all
+- can mail or deliver meds:
+  * always
+  * sometimes
+- cost coverage options
+  * medication at no cost
+  * other financial assistance available *  <- "contact site for more info"
+  * visits and labs at no cost
+- free or subsidized rides
+  * free rides
+  * sometimes free or subsidized rides
+- latino lgbtq providers available
+- lgbtq providers available
+- mental health treatment
+- psychiatry or psychiatric medication management
+- services available nights/evenings
+- spanish speaking providers
+- Substance Use Treatment
+  * support groups
+- telehealth
+- walk-in services
+
+Social Services
+- select all
+- housing assistance
+- immigration assistance
+- job training & employment assistance
+
+Additional Health Care Services
+- select all
+- dental care
+- on-site pharmacy
+- primary care
+
+Other Site Information
+- select all
+- free or validated parking
+- site reputation
+  * general organization  
+  * HIV-related services  
+  * services for latino LGBTQ+ population 
+  * services for LGBTQ+ population 
+  * services regardless of immigration status 

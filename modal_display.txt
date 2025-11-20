@@ -1,0 +1,15 @@
+
+**Site**: [site name as url link -- open in new tab (target='_blank')]
+**Organization**: [Organization]
+**Address**: [address]
+**Website**: [relist the URL printed out here -- open in new tab (target='_blank')]
+
+
+**PrEP**                **PEP**                **HIV Treatment**
+[list available services below section]
+
+**HIV/STI Testing**     **Mental Health & Substance Use** 
+[list available services below section]
+
+**Social Services**     **Additional Services**
+[list available services below section]
