@@ -5,8 +5,7 @@ build_ui <- function(all_service_cols) {
     title = "Juntos Referral Database",
     theme = bs_theme(
       version = 5,
-      bootswatch = "cosmo",
-      primary = "#0d6efd",
+      bootswatch = "flatly",
       base_font = font_google("Inter")
     ),
 
