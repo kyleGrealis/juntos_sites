@@ -2,7 +2,7 @@
 # Parent checkboxes check/uncheck all children
 # Children can be selected independently
 
-CHECKBOX_HIERARCHY <- list(
+checkbox_hierarchy <- list(
   prep = list(
     simple = list(
       pr_ep = "Offers PrEP",

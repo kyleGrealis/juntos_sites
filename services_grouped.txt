@@ -1,3 +1,6 @@
+# This is the list of the Services and checkboxes of the 
+# original website. Keeping for easy reference.
+
 Jurisdiction
 - select all
 - miami

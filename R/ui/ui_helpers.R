@@ -2,15 +2,19 @@
 create_service_accordion <- function(category_id, category_config, all_columns) {
 
   # Get the checkbox hierarchy for this category (has beautiful labels!)
-  hierarchy <- CHECKBOX_HIERARCHY[[category_id]]
+  hierarchy <- checkbox_hierarchy[[category_id]]
 
   if (is.null(hierarchy)) {
     return(NULL)
   }
 
   # Get available columns from config that exist in data
-  available_cols <- category_config$columns |>
-    keep(~ .x %in% all_columns)
+  available_cols <- c()
+  for (col in category_config$columns) {
+    if (col %in% all_columns) {
+      available_cols <- c(available_cols, col)
+    }
+  }
 
   # Build checkboxes list
   checkboxes <- list()
@@ -31,8 +35,9 @@ create_service_accordion <- function(category_id, category_config, all_columns) 
     )
   )
 
-  # Add simple checkboxes (with beautiful labels from CHECKBOX_HIERARCHY!)
-  for (col_name in names(hierarchy$simple)) {
+  # Add simple checkboxes (with beautiful labels from checkbox_hierarchy!)
+  simple_col_names <- names(hierarchy$simple)
+  for (col_name in simple_col_names) {
     if (col_name %in% available_cols) {
       checkbox_id <- paste0("service_", col_name)
       label <- hierarchy$simple[[col_name]]  # Use the beautiful label!
@@ -48,14 +53,19 @@ create_service_accordion <- function(category_id, category_config, all_columns) 
   }
 
   # Add grouped checkboxes (parent-child) with beautiful labels
-  for (group in hierarchy$groups) {
+  groups <- hierarchy$groups
+  for (group in groups) {
     parent_info <- group$parent
     child_labels <- group$children
     child_cols <- names(child_labels)
 
     # Only create group if at least one child exists in data
-    available_children <- child_cols |>
-      keep(~ .x %in% available_cols)
+    available_children <- c()
+    for (child_col in child_cols) {
+      if (child_col %in% available_cols) {
+        available_children <- c(available_children, child_col)
+      }
+    }
 
     if (length(available_children) > 0) {
 
@@ -115,59 +125,52 @@ create_service_accordion <- function(category_id, category_config, all_columns) 
 
 # Create all accordion panels
 create_all_accordions <- function(all_columns) {
-  SERVICE_CATEGORIES |>
-    imap(~ create_service_accordion(.y, .x, all_columns))
+  accordion_list <- list()
+
+  category_ids <- names(service_categories)
+  for (category_id in category_ids) {
+    category_config <- service_categories[[category_id]]
+    accordion_panel <- create_service_accordion(category_id, category_config, all_columns)
+    if (!is.null(accordion_panel)) {
+      accordion_list <- append(accordion_list, list(accordion_panel))
+    }
+  }
+
+  return(accordion_list)
 }
 
 # Count active filters
 count_active_filters <- function(input, all_service_cols) {
-  all_service_cols |>
-    map_chr(~ paste0("service_", .x)) |>
-    map_lgl(~ isTRUE(input[[.x]])) |>
-    sum()
+  count <- 0
+
+  for (col in all_service_cols) {
+    input_id <- paste0("service_", col)
+    if (isTRUE(input[[input_id]])) {
+      count <- count + 1
+    }
+  }
+
+  return(count)
 }
 
 # Get selected services organized by category
 get_selected_services <- function(input, all_service_cols) {
-  SERVICE_CATEGORIES |>
-    imap(function(category, category_id) {
-      selected <- category$columns |>
-        keep(~ {
-          input_id <- paste0("service_", .x)
-          isTRUE(input[[input_id]])
-        })
-      selected  # Return vector directly, no extra list wrapper!
-    }) |>
-    set_names(names(SERVICE_CATEGORIES))
-}
+  result <- list()
 
-# Create service badges for modal
-create_service_badges <- function(site_data, all_service_cols) {
-  SERVICE_CATEGORIES |>
-    imap(function(category, category_id) {
-      offered_services <- category$columns |>
-        keep(~ {
-          .x %in% all_service_cols &&
-          .x %in% names(site_data) &&
-          site_data[[.x]] == 1
-        })
+  category_ids <- names(service_categories)
+  for (category_id in category_ids) {
+    category <- service_categories[[category_id]]
+    selected <- c()
 
-      if (length(offered_services) == 0) return(NULL)
+    for (col in category$columns) {
+      input_id <- paste0("service_", col)
+      if (isTRUE(input[[input_id]])) {
+        selected <- c(selected, col)
+      }
+    }
 
-      badges <- offered_services |>
-        map(~ {
-          tags$span(
-            class = "badge me-1 mb-1",
-            style = paste0("background-color: ", category$color, ";"),
-            format_service_label(.x)
-          )
-        })
+    result[[category_id]] <- selected
+  }
 
-      div(
-        class = "mb-3",
-        h5(category$label),
-        div(class = "d-flex flex-wrap", badges)
-      )
-    }) |>
-    compact()
+  return(result)
 }

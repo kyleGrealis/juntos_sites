@@ -1,0 +1,115 @@
+/* Custom styles for Juntos Referral Database */
+
+/* Remove sidebar gray background */
+.bslib-sidebar-layout > .sidebar {
+  background-color: white !important;
+}
+
+/* Accordion styling */
+.accordion-button {
+  font-size: 0.85rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.accordion-body {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+/* Modal backdrop with blur effect */
+.modal-backdrop {
+  z-index: 1050 !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.6) !important;
+}
+
+.modal {
+  z-index: 1055 !important;
+}
+
+/* Tighter checkbox spacing */
+.form-check {
+  margin-bottom: 0.25rem;
+}
+
+/* Indent checkboxes so they're not aligned with accordion header */
+.accordion-body .form-check {
+  padding-left: 1.75rem;
+}
+
+/* Modal content styles */
+.modal-site-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.1rem;
+}
+
+.modal-organization {
+  font-size: 1.1rem;
+  color: #6c757d;
+  margin-bottom: 0;
+}
+
+.modal-site-info {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+}
+
+.modal-category-header {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  font-size: 0.95rem;
+}
+
+.modal-service-list {
+  margin-bottom: 0;
+  padding-left: 1.25rem;
+  font-size: 0.8rem;
+  line-height: 1.3;
+}
+
+.modal-service-list li {
+  margin-bottom: 0.1rem;
+}
+
+.modal-footnote {
+  font-size: 0.75rem;
+  color: #6c757d;
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+.modal-header-block {
+  background-color: #e9ecef;
+  padding: 1rem;
+  margin: -1rem -1rem 0 -1rem;
+  border-radius: 0.25rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* Modal close button */
+.modal-close-button {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+/* Modal container wrapper */
+.modal-container-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Modal content block */
+.modal-content-block {
+  text-align: left;
+}
+
+/* Modal services header */
+.modal-services-header {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  margin-top: 0.75rem;
+  font-size: 1.1rem;
+}

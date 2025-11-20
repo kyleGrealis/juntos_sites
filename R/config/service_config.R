@@ -1,4 +1,4 @@
-SERVICE_CATEGORIES <- list(
+service_categories <- list(
   prep = list(
     label = "PrEP",
     color = "#0d6efd",  # Bootstrap primary blue
@@ -135,7 +135,8 @@ SERVICE_CATEGORIES <- list(
 )
 
 # Extract all service columns from configuration
-all_service_cols <- SERVICE_CATEGORIES |>
-  map("columns") |>
-  reduce(c) |>
-  unique()
+all_service_cols <- c()
+for (category in service_categories) {
+  all_service_cols <- c(all_service_cols, category$columns)
+}
+all_service_cols <- unique(all_service_cols)
