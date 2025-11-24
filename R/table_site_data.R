@@ -8,11 +8,10 @@ juntos_data <- read_excel('data/Juntos_data_english.xlsx') |>
 # nrow(juntos_data)  # 61
 
 # Calculate service counts for each category
-# Load the R/service_definitions.R:
-# These are just lists of "simple" or "grouped". 
+# Note: service_definitions are loaded automatically from config_service_definitions.R
+# These are just lists of "simple" or "grouped".
 #   - Simple: a standalone service with no subgroups from original site
 #   - Grouped: grouped checkboxes with a parent checkbox and child checkbox(es)
-source('R/service_definitions.R')
 
 # Add up simple services + grouped services for each category
 juntos_with_counts <- juntos_data |>
