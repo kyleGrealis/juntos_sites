@@ -1,0 +1,32 @@
+# R specific
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+
+# Shiny
+rsconnect/
+shiny_prerendered/
+
+# Package cache
+packrat/
+renv/
+renv.lock
+
+# Session files
+.httr-oauth
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Temporary files
+*~
+*.swp
+*.swo
