@@ -1,70 +1,18 @@
 # Filtering functions for service checkboxes
-# 
 
-# Filter by PrEP services
-filter_by_prep <- function(data, selected_checkboxes) {
+# Generic filter: keep rows where ANY of the selected columns equals 1
+filter_by_services <- function(data, selected_checkboxes) {
   if (length(selected_checkboxes) == 0) return(data)
-  data |> 
-    filter(if_any(all_of(selected_checkboxes), ~ .x == 1))
-}
-
-# Filter by PEP services
-filter_by_pep <- function(data, selected_checkboxes) {
-  if (length(selected_checkboxes) == 0) return(data)
-  data |> 
-    filter(if_any(all_of(selected_checkboxes), ~ .x == 1))
-}
-
-# Filter by HIV Treatment services
-filter_by_hiv_treatment <- function(data, selected_checkboxes) {
-  if (length(selected_checkboxes) == 0) return(data)
-  data |> 
-    filter(if_any(all_of(selected_checkboxes), ~ .x == 1))
-}
-
-# Filter by HIV/STI Testing services
-filter_by_testing <- function(data, selected_checkboxes) {
-  if (length(selected_checkboxes) == 0) return(data)
-  data |> 
-    filter(if_any(all_of(selected_checkboxes), ~ .x == 1))
-}
-
-# Filter by Mental Health & Substance Use services
-filter_by_mhsu <- function(data, selected_checkboxes) {
-  if (length(selected_checkboxes) == 0) return(data)
-  data |> 
-    filter(if_any(all_of(selected_checkboxes), ~ .x == 1))
-}
-
-# Filter by Social Services
-filter_by_social_services <- function(data, selected_checkboxes) {
-  if (length(selected_checkboxes) == 0) return(data)
-  data |> 
-    filter(if_any(all_of(selected_checkboxes), ~ .x == 1))
-}
-
-# Filter by Additional Services
-filter_by_additional_services <- function(data, selected_checkboxes) {
-  if (length(selected_checkboxes) == 0) return(data)
-  data |> 
-    filter(if_any(all_of(selected_checkboxes), ~ .x == 1))
-}
-
-# Main filtering function: apply all category filters in sequence
-apply_service_filters <- function(
-  data, 
-  prep_selected, pep_selected, hiv_selected,
-  testing_selected, mhsu_selected, social_selected,
-  additional_selected
-) {
   data |>
-    filter_by_prep(prep_selected) |>
-    filter_by_pep(pep_selected) |>
-    filter_by_hiv_treatment(hiv_selected) |>
-    filter_by_testing(testing_selected) |>
-    filter_by_mhsu(mhsu_selected) |>
-    filter_by_social_services(social_selected) |>
-    filter_by_additional_services(additional_selected)
+    filter(if_any(all_of(selected_checkboxes), ~ .x == 1))
+}
+
+# Apply all category filters in sequence
+apply_service_filters <- function(data, selected_by_category) {
+  for (selected in selected_by_category) {
+    data <- filter_by_services(data, selected)
+  }
+  data
 }
 
 # Prepare filtered data for table display

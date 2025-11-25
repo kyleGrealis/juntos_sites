@@ -8,17 +8,7 @@ build_server <- function(all_service_cols) {
     # REACTIVE: Filtered data based on checkbox selections
     filtered_data <- reactive({
       selected <- get_selected_services(input, all_service_cols)
-
-      juntos_reduced |>
-        apply_service_filters(
-          prep_selected = selected$prep,
-          pep_selected = selected$pep,
-          hiv_selected = selected$hiv_treatment,
-          testing_selected = selected$testing,
-          mhsu_selected = selected$mhsu,
-          social_selected = selected$social_services,
-          additional_selected = selected$additional
-        )
+      juntos_reduced |> apply_service_filters(selected)
     })
 
     # REACTIVE: Table data prepared for display

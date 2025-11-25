@@ -38,7 +38,13 @@ create_sites_reactable <- function(table_data) {
         width = 100,
         align = "center",
         style = function(value) {
-          color <- if (value >= 20) "#198754" else if (value >= 10) "#0dcaf0" else "#6c757d"
+          color <- if (value >= 20) {
+            "#198754"
+          } else if (value >= 10) {
+            "#0dcaf0"
+          } else {
+            "#6c757d"
+          }
           list(fontWeight = 600, color = color)
         }
       )
