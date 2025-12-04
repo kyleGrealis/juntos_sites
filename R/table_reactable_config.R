@@ -39,17 +39,7 @@ create_sites_reactable <- function(table_data) {
       Services = colDef(
         width = 100,
         align = "center",
-        # Color-code by service count: green (20+), cyan (10-19), gray (<10)
-        style = function(value) {
-          color <- if (value >= 20) {
-            "#198754"
-          } else if (value >= 10) {
-            "#0dcaf0"
-          } else {
-            "#6c757d"
-          }
-          list(fontWeight = 600, color = color)
-        }
+        style = list(fontWeight = 600)
       )
     )
   )

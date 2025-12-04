@@ -2,7 +2,14 @@
 
 # Load raw data
 juntos_data <- read_excel('data/Juntos_data_english.xlsx') |>
-  clean_names()
+  clean_names() |>
+  mutate(
+    site_address = if_else(
+      tolower(site_address) == "n/a",
+      "(Mobile Unit)",
+      site_address
+    )
+  )
 
 # Helper to count services in a category
 # Used inside mutate() to sum service columns for each site
