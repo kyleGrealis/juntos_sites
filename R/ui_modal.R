@@ -3,7 +3,7 @@
 #' Build Welcome Modal
 #'
 #' Creates a startup modal that introduces users to the app and provides
-#' basic usage instructions.
+#' basic usage instructions. Language toggle is controlled via JavaScript.
 #'
 #' @return A modalDialog object to be shown with showModal()
 build_welcome_modal <- function() {
@@ -134,7 +134,7 @@ build_site_modal <- function(site_data, all_service_cols) {
 
     for (item in hierarchy$items) {
       if (item$type == "simple") {
-        # Simple service - check if site offers it
+        # Simple service - check if site offers it (value == 1)
         if (item$id %in% names(site_data) && site_data[[item$id]] == 1) {
           label <- item$label
           if (item$id %in% services_with_asterisk) {
@@ -146,6 +146,7 @@ build_site_modal <- function(site_data, all_service_cols) {
         }
       } else if (item$type == "group") {
         # Group - show parent label if ANY child is offered
+        # This displays "Cost coverage options" instead of listing all 3 child options
         has_any_child <- FALSE
         for (child in item$children) {
           if (child$id %in% names(site_data) && site_data[[child$id]] == 1) {
@@ -163,6 +164,7 @@ build_site_modal <- function(site_data, all_service_cols) {
     if (length(all_services) == 0) next
 
     # Build list items for this category with data-i18n for translation
+    # Each <li> has data-i18n attribute for JavaScript translation
     service_list_items <- lapply(seq_along(all_services), function(i) {
       service_id <- all_service_ids[[i]]
       tags$li(`data-i18n` = service_id, all_services[[i]])

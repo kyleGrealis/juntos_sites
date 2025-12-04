@@ -5,6 +5,7 @@ create_sites_reactable <- function(table_data) {
     table_data,
     selection = "single",
     onClick = "select",
+    # Show all rows (no pagination)
     defaultPageSize = nrow(table_data),
     pagination = FALSE,
     searchable = TRUE,
@@ -12,6 +13,7 @@ create_sites_reactable <- function(table_data) {
     bordered = TRUE,
     striped = TRUE,
     compact = FALSE,
+    # Dynamic height to fill viewport
     height = "calc(100vh - 280px)",
     theme = reactableTheme(
       borderColor = "#dfe2e5",
@@ -37,6 +39,7 @@ create_sites_reactable <- function(table_data) {
       Services = colDef(
         width = 100,
         align = "center",
+        # Color-code by service count: green (20+), cyan (10-19), gray (<10)
         style = function(value) {
           color <- if (value >= 20) {
             "#198754"

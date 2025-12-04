@@ -5,6 +5,7 @@ juntos_data <- read_excel('data/Juntos_data_english.xlsx') |>
   clean_names()
 
 # Helper to count services in a category
+# Used inside mutate() to sum service columns for each site
 count_category_services <- function(data, category_items) {
   cols <- get_category_column_ids(category_items)
   rowSums(
@@ -13,6 +14,7 @@ count_category_services <- function(data, category_items) {
 }
 
 # Calculate service counts for each category using the checkbox hierarchy
+# Adds count columns that are displayed in the table and modal
 juntos_with_counts <- juntos_data |>
   mutate(
     prep_count = count_category_services(
@@ -43,9 +45,10 @@ juntos_with_counts <- juntos_data |>
       .data,
       checkbox_hierarchy$additional$items
     ),
+    # Total used for sorting in the table
     total_services = prep_count + pep_count + hiv_treatment_count +
       testing_count + mhsu_count + social_count + additional_count
   )
 
-# Keep all columns for filtering
+# Keep all columns for filtering (no reduction in this refactor)
 juntos_reduced <- juntos_with_counts

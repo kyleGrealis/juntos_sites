@@ -1,6 +1,7 @@
 # Checkbox hierarchy for nested filtering UI
 # Items are ordered exactly as they should appear in the UI
-# Each item is either type="simple" or type="group"
+# Each item is either type="simple" (standalone checkbox) or type="group" (parent with children)
+# Group checkboxes sync their children via JavaScript (checkbox_handlers.js)
 
 checkbox_hierarchy <- list(
   prep = list(
@@ -517,6 +518,7 @@ checkbox_hierarchy <- list(
 )
 
 # Helper: Extract all column IDs from hierarchy (for filtering)
+# Returns only the actual data column names (not parent checkbox IDs)
 get_all_column_ids <- function(hierarchy) {
   ids <- c()
   for (category in hierarchy) {
@@ -524,6 +526,7 @@ get_all_column_ids <- function(hierarchy) {
       if (item$type == "simple") {
         ids <- c(ids, item$id)
       } else if (item$type == "group") {
+        # Only extract child IDs, not parent ID
         for (child in item$children) {
           ids <- c(ids, child$id)
         }
@@ -534,12 +537,14 @@ get_all_column_ids <- function(hierarchy) {
 }
 
 # Helper: Get all column IDs for a specific category
+# Returns only the actual data column names (not parent checkbox IDs)
 get_category_column_ids <- function(category_items) {
   ids <- c()
   for (item in category_items) {
     if (item$type == "simple") {
       ids <- c(ids, item$id)
     } else if (item$type == "group") {
+      # Only extract child IDs, not parent ID
       for (child in item$children) {
         ids <- c(ids, child$id)
       }

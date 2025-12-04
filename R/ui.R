@@ -3,6 +3,7 @@
 build_ui <- function(all_service_cols) {
   tagList(
     # These go in the HTML <head>
+    # JavaScript files handle bilingual translation and checkbox parent/child logic
     tags$head(
       tags$link(rel = "stylesheet", href = "custom.css"),
       tags$script(src = "translations.js"),
@@ -46,6 +47,8 @@ build_ui <- function(all_service_cols) {
           icon = icon("xmark")
         ),
 
+        # Service filter accordion panels
+        # Dynamically created based on checkbox_hierarchy config
         accordion(
           id = "service_accordion",
           multiple = TRUE,
@@ -67,6 +70,7 @@ build_ui <- function(all_service_cols) {
             class = "d-flex align-items-center gap-3",
 
             # Language toggle
+            # Handled by JavaScript (translations.js) - does not trigger Shiny reactives
             div(
               class = "btn-group lang-toggle",
               role = "group",
@@ -88,6 +92,7 @@ build_ui <- function(all_service_cols) {
             ),
 
             # Select a Site button (placeholder, always disabled)
+            # Actual site selection happens by clicking table rows
             tags$button(
               type = "button",
               class = "btn btn-primary disabled",

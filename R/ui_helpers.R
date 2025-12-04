@@ -1,11 +1,13 @@
 # UI helper functions for building accordion panels and checkboxes
 
 # Create accordion panel with service checkboxes (in correct order)
+# Returns NULL if no services in category are available in the data
 create_service_accordion <- function(category_id, category_config, all_columns) {
   hierarchy <- checkbox_hierarchy[[category_id]]
   if (is.null(hierarchy)) return(NULL)
 
   # Get available columns from data
+  # Only include checkboxes for columns that exist in juntos_data
   category_cols <- get_category_column_ids(hierarchy$items)
   available_cols <- category_cols[category_cols %in% all_columns]
 
@@ -31,9 +33,10 @@ create_service_accordion <- function(category_id, category_config, all_columns) 
   )
 
   # Iterate through items in order
+  # Two checkbox types: "simple" (standalone) and "group" (parent with children)
   for (item in hierarchy$items) {
     if (item$type == "simple") {
-      # Simple checkbox
+      # Simple checkbox (e.g., "Telehealth")
       if (item$id %in% available_cols) {
         checkbox_id <- paste0("service_", item$id)
         checkboxes <- append(
@@ -48,13 +51,14 @@ create_service_accordion <- function(category_id, category_config, all_columns) 
         )
       }
     } else if (item$type == "group") {
-      # Group with parent + children
+      # Group with parent + children (e.g., "Cost coverage options")
+      # Only show group if at least one child exists in data
       available_children <- item$children[
         sapply(item$children, function(c) c$id %in% available_cols)
       ]
 
       if (length(available_children) > 0) {
-        # Parent checkbox
+        # Parent checkbox (clicking this updates children via JS)
         parent_checkbox <- checkboxInput(
           inputId = item$id,
           label = item$label,
@@ -117,6 +121,7 @@ create_all_accordions <- function(all_columns) {
 }
 
 # Count active filters
+# Only counts actual service checkboxes, not parent/group checkboxes
 count_active_filters <- function(input, all_service_cols) {
   count <- 0
   for (col in all_service_cols) {
@@ -129,6 +134,7 @@ count_active_filters <- function(input, all_service_cols) {
 }
 
 # Get selected services organized by category
+# Returns a named list where each element is a character vector of selected column IDs
 get_selected_services <- function(input, all_service_cols) {
   result <- list()
 
@@ -136,9 +142,11 @@ get_selected_services <- function(input, all_service_cols) {
     hierarchy <- checkbox_hierarchy[[category_id]]
     if (is.null(hierarchy)) next
 
+    # Get all possible column IDs for this category
     category_cols <- get_category_column_ids(hierarchy$items)
     selected <- c()
 
+    # Check which checkboxes are actually selected
     for (col in category_cols) {
       input_id <- paste0("service_", col)
       if (isTRUE(input[[input_id]])) {

@@ -1,6 +1,7 @@
 # Utility functions for Juntos app
 
 # Helper function to create human-readable labels from column names
+# Removes category prefix and converts underscores to spaces with title case
 format_service_label <- function(col_name) {
   col_name |>
     str_remove("^(prep|pep|hiv|mhsu|sti)_") |>
@@ -9,11 +10,13 @@ format_service_label <- function(col_name) {
 }
 
 # Get all parent checkbox IDs from hierarchy (for clearing filters)
+# Includes both group parent checkboxes and "select all" checkboxes
 get_all_parent_ids <- function() {
   parent_ids <- c()
   for (category_id in names(checkbox_hierarchy)) {
     hierarchy <- checkbox_hierarchy[[category_id]]
     for (item in hierarchy$items) {
+      # Group checkboxes like "prep_cost_coverage" (parent of child checkboxes)
       if (item$type == "group") {
         parent_ids <- c(parent_ids, item$id)
       }

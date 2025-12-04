@@ -1,6 +1,7 @@
 # Filtering functions for service checkboxes
 
 # Generic filter: keep rows where ANY of the selected columns equals 1
+# Uses OR logic within a category (e.g., "PrEP telehealth" OR "PrEP walk-in")
 filter_by_services <- function(data, selected_checkboxes) {
   if (length(selected_checkboxes) == 0) return(data)
   data |>
@@ -8,6 +9,7 @@ filter_by_services <- function(data, selected_checkboxes) {
 }
 
 # Apply all category filters in sequence
+# Uses AND logic across categories (must match ALL active category filters)
 apply_service_filters <- function(data, selected_by_category) {
   for (selected in selected_by_category) {
     data <- filter_by_services(data, selected)
@@ -16,6 +18,7 @@ apply_service_filters <- function(data, selected_by_category) {
 }
 
 # Prepare filtered data for table display
+# Selects only the columns needed for the table, renames for display, and sorts
 prepare_table_data <- function(filtered_data) {
   filtered_data |>
     select(
@@ -32,6 +35,7 @@ prepare_table_data <- function(filtered_data) {
       `Address` = site_address,
       `Services` = total_services
     ) |>
+    # Sort by service count (descending), then alphabetically by name
     arrange(desc(`Services`), `Site Name`)
 }
 
