@@ -1,3 +1,107 @@
+# Modal builders for Juntos app
+
+#' Build Welcome Modal
+#'
+#' Creates a startup modal that introduces users to the app and provides
+#' basic usage instructions.
+#'
+#' @return A modalDialog object to be shown with showModal()
+build_welcome_modal <- function() {
+  modalDialog(
+    title = NULL,
+    size = 'l',
+    easyClose = TRUE,
+    footer = div(
+      class = "d-flex justify-content-between align-items-center w-100",
+
+      # Language toggle (left side)
+      div(
+        class = "btn-group lang-toggle",
+        role = "group",
+        `aria-label` = "Language selection",
+        tags$button(
+          type = "button",
+          id = "lang_en",
+          class = "btn btn-outline-secondary btn-sm active",
+          onclick = "setLanguage('en')",
+          "English"
+        ),
+        tags$button(
+          type = "button",
+          id = "lang_es",
+          class = "btn btn-outline-secondary btn-sm",
+          onclick = "setLanguage('es')",
+          "Español"
+        )
+      ),
+
+      # Get Started button (right side)
+      tags$button(
+        type = 'button',
+        class = 'btn btn-primary modal-close-button',
+        `data-bs-dismiss` = 'modal',
+        `data-i18n` = 'get_started',
+        'Get Started'
+      )
+    ),
+
+    div(
+      class = 'modal-container-wrapper',
+
+      # Welcome header
+      div(
+        class = 'modal-header-block',
+        div(
+          class = 'modal-content-block text-center',
+          h3(
+            class = 'modal-site-name',
+            `data-i18n` = 'welcome_title',
+            'Welcome to Juntos Referral Database'
+          ),
+          p(
+            class = 'modal-organization',
+            `data-i18n` = 'welcome_subtitle',
+            'Find HIV and Health Services in Your Area'
+          )
+        )
+      ),
+
+      # About section
+      div(
+        class = 'mt-3',
+        h5(
+          class = 'modal-services-header',
+          `data-i18n` = 'about_header',
+          'About This Database'
+        ),
+        p(
+          class = 'modal-site-info',
+          `data-i18n` = 'about_text',
+          'This database helps you find healthcare sites offering HIV prevention,
+          treatment, and related health services. Search and filter sites to find
+          the services you need.'
+        )
+      ),
+
+      # How to use section
+      div(
+        class = 'mt-3',
+        h5(
+          class = 'modal-services-header',
+          `data-i18n` = 'how_to_use',
+          'How to Use'
+        ),
+        tags$ul(
+          class = 'modal-service-list',
+          tags$li(`data-i18n` = 'how_to_1', 'Use the sidebar filters to select services you need'),
+          tags$li(`data-i18n` = 'how_to_2', 'Click on any row in the table to view detailed site information'),
+          tags$li(`data-i18n` = 'how_to_3', 'Use the "Clear All Filters" button to reset your selection')
+        )
+      )
+    )
+  )
+}
+
 # Modal builder for site details
 
 build_site_modal <- function(site_data, all_service_cols) {
@@ -24,8 +128,9 @@ build_site_modal <- function(site_data, all_service_cols) {
 
     if (is.null(hierarchy)) next
 
-    # Collect services offered in this category
+    # Collect services offered in this category (labels and IDs for translation)
     all_services <- c()
+    all_service_ids <- c()
 
     for (item in hierarchy$items) {
       if (item$type == "simple") {
@@ -37,6 +142,7 @@ build_site_modal <- function(site_data, all_service_cols) {
             label <- paste0(label, "*")
           }
           all_services <- c(all_services, label)
+          all_service_ids <- c(all_service_ids, item$id)
         }
       } else if (item$type == "group") {
         # Group - show parent label if ANY child is offered
@@ -49,20 +155,25 @@ build_site_modal <- function(site_data, all_service_cols) {
         }
         if (has_any_child) {
           all_services <- c(all_services, item$label)
+          all_service_ids <- c(all_service_ids, item$id)
         }
       }
     }
 
     if (length(all_services) == 0) next
 
-    # Build list items for this category
-    service_list_items <- lapply(all_services, tags$li)
+    # Build list items for this category with data-i18n for translation
+    service_list_items <- lapply(seq_along(all_services), function(i) {
+      service_id <- all_service_ids[[i]]
+      tags$li(`data-i18n` = service_id, all_services[[i]])
+    })
 
     # Create category section (3 columns on large screens)
     category_section <- div(
       class = "col-lg-4 col-md-6 mb-2",
       h5(
         class = "modal-category-header",
+        `data-i18n-category` = category_id,
         category$label
       ),
       tags$ul(
@@ -83,6 +194,7 @@ build_site_modal <- function(site_data, all_service_cols) {
       type = "button",
       class = "btn btn-secondary modal-close-button",
       `data-bs-dismiss` = "modal",
+      `data-i18n` = "close",
       "Close"
     ),
 
@@ -117,7 +229,7 @@ build_site_modal <- function(site_data, all_service_cols) {
             class = "mb-1",
             p(
               class = "modal-site-info",
-              strong("Address: "),
+              strong(`data-i18n` = "address", "Address: "),
               site_data$site_address
             )
           ),
@@ -127,7 +239,7 @@ build_site_modal <- function(site_data, all_service_cols) {
             class = "mb-0",
             p(
               class = "modal-site-info",
-              strong("Website: "),
+              strong(`data-i18n` = "website", "Website: "),
               tags$a(
                 href = site_data$website,
                 target = "_blank",
@@ -141,6 +253,7 @@ build_site_modal <- function(site_data, all_service_cols) {
       # Services header
       h4(
         class = "modal-services-header",
+        `data-i18n` = "services_offered",
         "Services Offered"
       ),
 
@@ -156,6 +269,7 @@ build_site_modal <- function(site_data, all_service_cols) {
           class = "mt-3",
           p(
             class = "modal-footnote",
+            `data-i18n` = "contact_footnote",
             "* Contact site for more information"
           )
         )
