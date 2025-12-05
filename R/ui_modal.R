@@ -32,6 +32,13 @@ build_welcome_modal <- function() {
           class = "btn btn-outline-secondary btn-sm",
           onclick = "setLanguage('es')",
           "Español"
+        ),
+        tags$button(
+          type = "button",
+          id = "lang_ht",
+          class = "btn btn-outline-secondary btn-sm",
+          onclick = "setLanguage('ht')",
+          "Kreyòl"
         )
       ),
 
