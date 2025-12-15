@@ -12,7 +12,7 @@ build_ui <- function(all_service_cols) {
     shinyjs::useShinyjs(),
 
     page_navbar(
-      title = "Juntos Referral Database",
+      title = "Health Services Referral Database",
       theme = bs_theme(
         version = 5,
         bootswatch = "flatly",

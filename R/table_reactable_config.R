@@ -45,12 +45,6 @@ create_sites_reactable <- function(table_data, lang = "en") {
       Address = colDef(
         name = t_ui("col_address", lang),
         minWidth = 250
-      ),
-      Services = colDef(
-        name = t_ui("col_services", lang),
-        width = 100,
-        align = "center",
-        style = list(fontWeight = 600)
       )
     )
   )
