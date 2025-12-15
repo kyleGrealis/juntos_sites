@@ -72,7 +72,7 @@ ui_translations <- list(
     contact_footnote = "* Contact site for more information",
 
     # Footer
-    footer_text = "Juntos HIV/Health Services Referral Database",
+    footer_text = "Health Services Referral Database",
 
     # Accordion misc
     select_all = "Select All",
