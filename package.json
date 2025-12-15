@@ -1,0 +1,30 @@
+{
+  "name": "juntos_site",
+  "version": "1.0.0",
+  "description": "A Shiny web application for exploring HIV and health services across healthcare sites in South Florida. Users can filter by service categories (PrEP, PEP, HIV treatment, STI testing, mental health, etc.) to find sites that meet their needs. Supports English and Spanish.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint www/*.js",
+    "lint:fix": "eslint www/*.js --fix",
+    "test": "jest",
+    "build": "npm run lint && npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyleGrealis/juntos_sites.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/kyleGrealis/juntos_sites/issues"
+  },
+  "homepage": "https://github.com/kyleGrealis/juntos_sites#readme",
+  "devDependencies": {
+    "eslint": "^9.39.2",
+    "jest": "^30.2.0",
+    "jest-environment-jsdom": "^30.2.0",
+    "jquery": "^3.7.1"
+  }
+}
