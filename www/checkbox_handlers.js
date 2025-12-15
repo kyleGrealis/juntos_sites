@@ -12,11 +12,11 @@ function setLanguage(lang) {
   console.log('setLanguage called with:', lang);
 
   // Update modal toggle button states
-  $('#lang_en, #lang_es, #lang_ht').removeClass('active');
+  $('#lang_en, #lang_es').removeClass('active');
   $('#lang_' + lang).addClass('active');
 
   // Update app toggle button states
-  $('#app_lang_en, #app_lang_es, #app_lang_ht').removeClass('active');
+  $('#app_lang_en, #app_lang_es').removeClass('active');
   $('#app_lang_' + lang).addClass('active');
 
   // Notify Shiny of the language change (only if Shiny is ready)

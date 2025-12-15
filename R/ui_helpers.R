@@ -82,9 +82,6 @@ create_service_accordion <- function(category_id, category_config, all_columns) 
     }
   }
 
-  # Count available checkboxes
-  checkbox_count <- length(available_cols)
-
   # Title with colored badge
   badge_style <- glue(
     "display: inline-block; width: 8px; height: 8px; ",
@@ -94,7 +91,7 @@ create_service_accordion <- function(category_id, category_config, all_columns) 
 
   title_with_color <- div(
     span(style = badge_style),
-    glue("{category_config$label} ({checkbox_count})")
+    category_config$label
   )
 
   accordion_panel(
