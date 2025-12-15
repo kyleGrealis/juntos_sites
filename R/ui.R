@@ -88,13 +88,6 @@ build_ui <- function(all_service_cols) {
                 class = "btn btn-outline-secondary btn-sm",
                 onclick = "setLanguage('es')",
                 "Español"
-              ),
-              tags$button(
-                type = "button",
-                id = "app_lang_ht",
-                class = "btn btn-outline-secondary btn-sm",
-                onclick = "setLanguage('ht')",
-                "Kreyòl"
               )
             ),
 

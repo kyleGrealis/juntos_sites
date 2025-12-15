@@ -1,4 +1,4 @@
-// Client-side translations for dynamic language switching (English/Spanish/Creole)
+// Client-side translations for dynamic language switching (English/Spanish)
 // This mirrors R/config_translations.R for JavaScript access
 
 const translations = {
@@ -55,32 +55,6 @@ const translations = {
       website: "Sitio Web: ",
       services_offered: "Servicios Ofrecidos",
       contact_footnote: "* Contacte al sitio para más información"
-    },
-    ht: {
-      // Welcome modal
-      welcome_title: "Byenveni nan Baz Done Referans Juntos",
-      welcome_subtitle: "Jwenn Sèvis VIH ak Sante nan Zòn Ou",
-      about_header: "Konsènan Baz Done Sa a",
-      about_text: "Baz done sa a ede ou jwenn sit swen sante ki ofri prevansyon, tretman, ak sèvis sante ki gen rapò ak VIH. Chèche epi filtre sit yo pou jwenn sèvis ou bezwen yo.",
-      how_to_use: "Kijan Pou Itilize",
-      how_to_1: "Sèvi ak filtè yo nan ba lateral la pou chwazi sèvis ou bezwen",
-      how_to_2: "Klike sou nenpòt ranje nan tablo a pou wè enfòmasyon detaye sou sit la",
-      how_to_3: 'Itilize bouton "Efase Tout Filtè" pou reyinisyalize seleksyon ou',
-      get_started: "Kòmanse",
-
-      // App UI
-      filter_services: "Filtre Sèvis",
-      select_all: "Chwazi Tout",
-      clear_all: "Efase Tout Filtè",
-      healthcare_sites: "Sit Swen Sante",
-      select_site: "Chwazi yon Sit",
-
-      // Site detail modal
-      close: "Fèmen",
-      address: "Adrès: ",
-      website: "Sit Wèb: ",
-      services_offered: "Sèvis Ki Ofri",
-      contact_footnote: "* Kontakte sit la pou plis enfòmasyon"
     }
   },
 
@@ -103,15 +77,6 @@ const translations = {
       mhsu: "Salud Mental y Uso de Sustancias",
       social_services: "Servicios Sociales",
       additional: "Servicios Adicionales"
-    },
-    ht: {
-      prep: "PrEP",
-      pep: "PEP",
-      hiv_treatment: "Tretman VIH",
-      testing: "Tès VIH/ITS",
-      mhsu: "Sante Mantal ak Itilizasyon Sibstans",
-      social_services: "Sèvis Sosyal",
-      additional: "Sèvis Adisyonèl"
     }
   },
 
@@ -339,118 +304,6 @@ const translations = {
       on_site_pharmacy: "Farmacia en el sitio",
       primary_care: "Atención primaria",
       free_validating_parking: "Estacionamiento gratis/validado"
-    },
-
-    ht: {
-      // PrEP
-      pr_ep: "Ofri PrEP",
-      prep_can_mail_deliver_meds: "Ka voye/livre medikaman",
-      prep_can_mail_deliver_meds_always: "Toujou",
-      prep_can_mail_deliver_meds_sometimes: "Pafwa",
-      prep_cost_coverage: "Opsyon kouvèti depans",
-      prep_medication_at_no_cost: "Medikaman gratis",
-      prep_other_financial_assistance_available: "Lòt asistans finansye disponib",
-      prep_visits_and_labs_at_no_cost: "Vizit ak laboratwa gratis",
-      prep_rides: "Transpò gratis oswa sibvansyone",
-      prep_free_rides: "Transpò gratis",
-      prep_sometimes_free_subsidized_rides: "Pafwa transpò gratis/sibvansyone",
-      prep_latino_lgbtq_providers_available: "Founisè Latino LGBTQ+ disponib",
-      prep_lgbtq_providers_available: "Founisè LGBTQ+ disponib",
-      prep_new_delivery: "Nouvo opsyon administrasyon",
-      prep_injectable_pr_ep_available: "PrEP enjektab disponib",
-      prep_pr_ep_on_demand_2_1_1_available: "PrEP sou demann (2-1-1) disponib",
-      prep_on_site_patient_navigators: "Navigatè pasyan sou sit",
-      prep_services_available_nights_evenings: "Sèvis disponib aswè/lannwit",
-      prep_site_offers_rapid_pr_ep: "Sit la ofri PrEP rapid",
-      prep_spanish_speaking_providers: "Founisè ki pale Panyòl",
-      prep_telehealth: "Telesante",
-      prep_walk_in_services: "Sèvis san randevou",
-
-      // PEP
-      pep: "Ofri PEP",
-      pep_can_mail_deliver_meds: "Ka voye/livre medikaman",
-      pep_can_mail_deliver_meds_always: "Toujou",
-      pep_can_mail_deliver_meds_sometimes: "Pafwa",
-      pep_cost_coverage: "Opsyon kouvèti depans",
-      pep_medication_at_no_cost: "Medikaman gratis",
-      pep_other_financial_assistance_available: "Lòt asistans finansye disponib",
-      pep_visits_and_labs_at_no_cost: "Vizit ak laboratwa gratis",
-      pep_rides: "Transpò gratis oswa sibvansyone",
-      pep_free_rides: "Transpò gratis",
-      pep_sometimes_free_subsidized_rides: "Pafwa transpò gratis/sibvansyone",
-      pep_latino_lgbtq_providers_available: "Founisè Latino LGBTQ+ disponib",
-      pep_lgbtq_providers_available: "Founisè LGBTQ+ disponib",
-      pep_on_site_patient_navigators: "Navigatè pasyan sou sit",
-      pep_rapid_same_day: "Sèvis rapid oswa menm jou",
-      pep_full_supply_available: "Pwovizyon konplè disponib",
-      pep_starter_packs_available: "Pakè kòmansman disponib",
-      pep_services_available_nights_evenings: "Sèvis disponib aswè/lannwit",
-      pep_spanish_speaking_providers: "Founisè ki pale Panyòl",
-      pep_telehealth: "Telesante",
-      pep_walk_in_services: "Sèvis san randevou",
-
-      // HIV Treatment
-      hiv_treatment: "Ofri tretman VIH",
-      hiv_can_mail_deliver_meds: "Ka voye/livre medikaman",
-      hiv_can_mail_deliver_meds_always: "Toujou",
-      hiv_can_mail_deliver_meds_sometimes: "Pafwa",
-      hiv_cost_coverage: "Opsyon kouvèti depans",
-      hiv_medication_at_no_cost: "Medikaman gratis",
-      hiv_other_financial_assistance_available: "Lòt asistans finansye disponib",
-      hiv_visits_and_labs_at_no_cost: "Vizit ak laboratwa gratis",
-      hiv_rides: "Transpò gratis oswa sibvansyone",
-      hiv_free_rides: "Transpò gratis",
-      hiv_sometimes_free_subsidized_rides: "Pafwa transpò gratis/sibvansyone",
-      hiv_injectable_art_available: "TAR enjektab disponib",
-      hiv_latino_lgbtq_providers_available: "Founisè Latino LGBTQ+ disponib",
-      hiv_lgbtq_providers_available: "Founisè LGBTQ+ disponib",
-      hiv_patient_navigators: "Navigatè pasyan sou sit",
-      hiv_on_site_patient_navigators: "Navigatè pasyan",
-      hiv_on_site_ryan_white_patient_navigators: "Manadjè ka Ryan White",
-      hiv_rapid_hiv_treatment_available: "Tretman VIH rapid disponib",
-      hiv_services_available_nights_evenings: "Sèvis disponib aswè/lannwit",
-      hiv_spanish_speaking_providers: "Founisè ki pale Panyòl",
-      hiv_telehealth: "Telesante",
-      hiv_walk_in_services: "Sèvis san randevou",
-
-      // Testing
-      hiv_testing_confirmatory: "Tès VIH (konfirmasyon)",
-      hiv_testing_rapid: "Tès VIH (rapid)",
-      sti_testing: "Tès ITS",
-      sti_treatment: "Tretman ITS",
-
-      // Mental Health & Substance Use
-      mhsu_can_mail_deliver_meds: "Ka voye/livre medikaman",
-      mhsu_can_mail_deliver_meds_always: "Toujou",
-      mhsu_can_mail_deliver_meds_sometimes: "Pafwa",
-      mhsu_cost_coverage: "Opsyon kouvèti depans",
-      mhsu_treatment_is_available_at_no_cost: "Tretman disponib gratis",
-      mhsu_other_financial_assistance_available: "Lòt asistans finansye disponib",
-      mhsu_rides: "Transpò gratis oswa sibvansyone",
-      mhsu_free_rides: "Transpò gratis",
-      mhsu_sometimes_free_subsidized_rides: "Pafwa transpò gratis/sibvansyone",
-      mhsu_latino_lgbtq_providers_available: "Founisè Latino LGBTQ+ disponib",
-      mhsu_lgbtq_providers_available: "Founisè LGBTQ+ disponib",
-      mhsu_mental_health_treatment: "Tretman sante mantal",
-      mhsu_psychiatry_or_psychiatric_medication_management: "Sikiyatri/jesyon medikaman",
-      mhsu_services_available_nights_evenings: "Sèvis disponib aswè/lannwit",
-      mhsu_spanish_speaking_providers: "Founisè ki pale Panyòl",
-      mhsu_substance_use: "Tretman itilizasyon sibstans",
-      mhsu_substance_use_treatment: "Tretman itilizasyon sibstans",
-      mhsu_support_groups: "Gwoup sipò",
-      mhsu_telehealth: "Telesante",
-      mhsu_walk_in_services: "Sèvis san randevou",
-
-      // Social Services
-      housing_assistance: "Asistans lojman",
-      immigration_assistance: "Asistans imigrasyon",
-      job_training_employment_assistance: "Fòmasyon travay ak asistans anplwa",
-
-      // Additional Services
-      dental_care: "Swen dantè",
-      on_site_pharmacy: "Famasi sou sit",
-      primary_care: "Swen primè",
-      free_validating_parking: "Pakin gratis/valide"
     }
   }
 };
@@ -591,14 +444,7 @@ function updateTranslations(lang) {
     'Servicios Sociales': 'social_services',
     'Servicios Adicionales': 'additional'
   };
-  const categoryLabelsHt = {
-    'Tretman VIH': 'hiv_treatment',
-    'Tès VIH/ITS': 'testing',
-    'Sante Mantal ak Itilizasyon Sibstans': 'mhsu',
-    'Sèvis Sosyal': 'social_services',
-    'Sèvis Adisyonèl': 'additional'
-  };
-  const allCategoryLabels = Object.assign({}, categoryLabelsEn, categoryLabelsEs, categoryLabelsHt);
+  const allCategoryLabels = Object.assign({}, categoryLabelsEn, categoryLabelsEs);
 
   $('.accordion-button').each(function() {
     const $btn = $(this);
