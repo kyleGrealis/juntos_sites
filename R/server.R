@@ -41,8 +41,10 @@ build_server <- function(all_service_cols) {
     })
 
     # Render table using configuration
+    # Re-renders when language changes to update column headers
     output$sites_table <- renderReactable({
-      create_sites_reactable(table_data())
+      lang <- input$language %||% "en"
+      create_sites_reactable(table_data(), lang)
     })
 
     # Handle table row selection - open modal directly

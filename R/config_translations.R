@@ -75,7 +75,14 @@ ui_translations <- list(
     footer_text = "Juntos HIV/Health Services Referral Database",
 
     # Accordion misc
-    select_all = "Select All"
+    select_all = "Select All",
+
+    # Table column headers
+    col_site_name = "Site Name",
+    col_organization = "Organization",
+    col_jurisdiction = "Jurisdiction",
+    col_address = "Address",
+    col_services = "Services"
   ),
 
   es = list(
@@ -116,7 +123,14 @@ ui_translations <- list(
     footer_text = "Base de Datos de Referidos de Servicios de VIH/Salud Juntos",
 
     # Accordion misc
-    select_all = "Seleccionar Todo"
+    select_all = "Seleccionar Todo",
+
+    # Table column headers
+    col_site_name = "Nombre del Sitio",
+    col_organization = "Organización",
+    col_jurisdiction = "Jurisdicción",
+    col_address = "Dirección",
+    col_services = "Servicios"
   ),
 
   ht = list(
@@ -158,7 +172,14 @@ ui_translations <- list(
     footer_text = "Baz Done Referans Sèvis VIH/Sante Juntos",
 
     # Accordion misc
-    select_all = "Chwazi Tout"
+    select_all = "Chwazi Tout",
+
+    # Table column headers
+    col_site_name = "Non Sit",
+    col_organization = "Òganizasyon",
+    col_jurisdiction = "Jiridiksyon",
+    col_address = "Adrès",
+    col_services = "Sèvis"
   )
 )
 

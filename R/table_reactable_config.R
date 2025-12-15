@@ -1,6 +1,6 @@
 # Reactable table configuration for sites table
 
-create_sites_reactable <- function(table_data) {
+create_sites_reactable <- function(table_data, lang = "en") {
   reactable(
     table_data,
     selection = "single",
@@ -30,13 +30,24 @@ create_sites_reactable <- function(table_data) {
     ),
     columns = list(
       `Site Name` = colDef(
+        name = t_ui("col_site_name", lang),
         minWidth = 200,
         style = list(fontWeight = 500)
       ),
-      Organization = colDef(minWidth = 180),
-      Jurisdiction = colDef(minWidth = 120),
-      Address = colDef(minWidth = 250),
+      Organization = colDef(
+        name = t_ui("col_organization", lang),
+        minWidth = 180
+      ),
+      Jurisdiction = colDef(
+        name = t_ui("col_jurisdiction", lang),
+        minWidth = 120
+      ),
+      Address = colDef(
+        name = t_ui("col_address", lang),
+        minWidth = 250
+      ),
       Services = colDef(
+        name = t_ui("col_services", lang),
         width = 100,
         align = "center",
         style = list(fontWeight = 600)
