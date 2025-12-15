@@ -109,7 +109,7 @@ build_ui <- function(all_service_cols) {
 
       footer = div(
         class = "text-center text-muted py-3",
-        "Juntos HIV/Health Services Referral Database"
+        "Health Services Referral Database"
       )
     )
   )
