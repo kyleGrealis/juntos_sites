@@ -1,6 +1,6 @@
-# Juntos Referral Database
+# Health Services Referral Database
 
-A Shiny web application for exploring HIV and health services across healthcare sites in South Florida. Users can filter by service categories (PrEP, PEP, HIV treatment, STI testing, mental health, etc.) to find sites that meet their needs.
+A Shiny web application for exploring HIV and health services across healthcare sites in South Florida. Users can filter by service categories (PrEP, PEP, HIV treatment, STI testing, mental health, etc.) to find sites that meet their needs. Supports English and Spanish.
 
 ## Requirements
 
@@ -38,7 +38,7 @@ The app will open in your default web browser.
 
 1. Use sidebar filters to select services
 2. Browse the table of matching sites
-3. Click a site row and press 'View [Site Name]' for full details
+3. Click a site row to view full details
 4. Clear filters with 'Clear All Filters' button
 
 ## Data
