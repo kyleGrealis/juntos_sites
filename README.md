@@ -44,3 +44,14 @@ The app will open in your default web browser.
 ## Data
 
 Site data is stored in `data/Juntos_data_english.xlsx`. This Excel file contains healthcare site information and services offered.
+
+## Development
+
+JavaScript linting and tests require Node.js:
+
+```bash
+npm install        # Install dev dependencies
+npm run build      # Run lint + tests
+```
+
+CI runs automatically on pushes and PRs to `main` and `bilingual` branches.
