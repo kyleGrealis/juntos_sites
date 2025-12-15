@@ -4,35 +4,32 @@ A Shiny web application for exploring HIV and health services across healthcare 
 
 ## Requirements
 
-R 4.0 or higher recommended.
-
-Install required packages:
+[R](https://cran.r-project.org/) 4.0+ required. Install packages:
 
 ```r
 install.packages(c(
-  'tidyverse',
-  'shiny',
-  'bslib',
-  'janitor',
-  'reactable',
-  'shinyjs',
-  'glue',
-  'readxl'
+  'tidyverse', 'shiny', 'bslib', 'janitor',
+  'reactable', 'shinyjs', 'glue', 'readxl'
 ))
 ```
 
 ## Running the App
 
-From the project directory:
-
 ```r
-# Using shiny
 shiny::runApp()
-
-# From RStudio: Open app.R and click 'Run App'
 ```
 
-The app will open in your default web browser.
+Or from RStudio: open `app.R` and click "Run App".
+
+### Alternative: npm workflow
+
+If you have [Node.js](https://nodejs.org/) installed:
+
+```bash
+npm install        # JS dev dependencies
+npm run setup      # Install R packages (skips existing)
+npm start          # Launch app
+```
 
 ## Usage
 
