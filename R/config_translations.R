@@ -38,8 +38,8 @@
 ui_translations <- list(
   en = list(
     # Welcome modal
-    welcome_title = "Welcome to Juntos Referral Database",
-    welcome_subtitle = "Find HIV and Health Services in Your Area",
+    welcome_title = "Welcome to the Health Services Referral Database",
+    welcome_subtitle = "Find Health Services in Your Area",
 
     about_header = "About This Database",
     about_text = "This database helps you find healthcare sites offering HIV prevention, treatment, and related health services. Search and filter sites to find the services you need.",

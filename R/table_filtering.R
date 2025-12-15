@@ -25,18 +25,15 @@ prepare_table_data <- function(filtered_data) {
       site_name,
       org_name,
       jurisdiction,
-      site_address,
-      total_services
+      site_address
     ) |>
     rename(
       `Site Name` = site_name,
       `Organization` = org_name,
       `Jurisdiction` = jurisdiction,
-      `Address` = site_address,
-      `Services` = total_services
+      `Address` = site_address
     ) |>
-    # Sort by service count (descending), then alphabetically by name
-    arrange(desc(`Services`), `Site Name`)
+    arrange(`Site Name`)
 }
 
 # Get full site details by name

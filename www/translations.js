@@ -6,8 +6,8 @@ const translations = {
   ui: {
     en: {
       // Welcome modal
-      welcome_title: "Welcome to Juntos Referral Database",
-      welcome_subtitle: "Find HIV and Health Services in Your Area",
+      welcome_title: "Welcome to the Health Services Referral Database",
+      welcome_subtitle: "Find Health Services in Your Area",
       about_header: "About This Database",
       about_text: "This database helps you find healthcare sites offering HIV prevention, treatment, and related health services. Search and filter sites to find the services you need.",
       how_to_use: "How to Use",
@@ -606,23 +606,15 @@ function updateTranslations(lang) {
 
     if ($titleDiv.length > 0) {
       const currentText = $titleDiv.text().trim();
-      // Extract category name (before the count in parentheses)
-      const match = currentText.match(/^(.+?)\s*\((\d+)\)$/);
+      // Find which category this is by matching current text
+      const categoryId = allCategoryLabels[currentText];
 
-      if (match) {
-        const categoryName = match[1].trim();
-        const count = match[2];
-
-        // Find which category this is
-        const categoryId = allCategoryLabels[categoryName];
-
-        if (categoryId) {
-          const $dotSpan = $titleDiv.find('span').first();
-          if ($dotSpan.length > 0) {
-            const spanHtml = $dotSpan.prop('outerHTML');
-            $titleDiv.html(spanHtml + translations.categories[lang][categoryId] + ' (' + count + ')');
-            console.log('Updated accordion header:', categoryId);
-          }
+      if (categoryId) {
+        const $dotSpan = $titleDiv.find('span').first();
+        if ($dotSpan.length > 0) {
+          const spanHtml = $dotSpan.prop('outerHTML');
+          $titleDiv.html(spanHtml + translations.categories[lang][categoryId]);
+          console.log('Updated accordion header:', categoryId);
         }
       }
     }

@@ -63,12 +63,12 @@ build_welcome_modal <- function() {
           h3(
             class = 'modal-site-name',
             `data-i18n` = 'welcome_title',
-            'Welcome to Juntos Referral Database'
+            'Welcome to the Health Services Referral Database'
           ),
           p(
             class = 'modal-organization',
             `data-i18n` = 'welcome_subtitle',
-            'Find HIV and Health Services in Your Area'
+            'Find Health Services in Your Area'
           )
         )
       ),
