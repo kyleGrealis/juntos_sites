@@ -12,11 +12,23 @@ build_ui <- function(all_service_cols) {
     shinyjs::useShinyjs(),
 
     page_navbar(
-      title = "Health Services Referral Database",
+      title = div(
+        class = "navbar-brand-wrapper d-flex align-items-center",
+        tags$img(
+          src = "logos/logo.png",
+          alt = "Juntos Health Services Logo",
+          class = "navbar-logo"
+        ),
+        span(
+          "Health Services Referral Database",
+          class = "navbar-title-text"
+        )
+      ),
       theme = bs_theme(
         version = 5,
         bootswatch = "flatly",
-        base_font = font_google("Inter")
+        brand = TRUE,
+        font_scale = 1.15
       ),
 
       sidebar = sidebar(
@@ -59,11 +71,16 @@ build_ui <- function(all_service_cols) {
 
       nav_panel(
         title = "",
-        icon = icon("table"),
 
         div(
-          class = "d-flex justify-content-between align-items-center mb-3",
-          h4("Healthcare Sites", class = "mb-0", `data-i18n` = "healthcare_sites"),
+          class = "d-flex justify-content-between align-items-center mb-1",
+          style = "height: 100px;",
+          tags$img(
+            src = "logos/juntos.png",
+            alt = "Juntos Health Services",
+            class = "content-logo",
+            height = "150px"
+          ),
 
           # Right side: language toggle + Select a Site button
           div(
@@ -108,7 +125,7 @@ build_ui <- function(all_service_cols) {
       ),
 
       footer = div(
-        class = "text-center text-muted py-3",
+        class = "text-center py-3 the-footer",
         "Health Services Referral Database"
       )
     )

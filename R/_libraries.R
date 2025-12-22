@@ -6,6 +6,7 @@ library(reactable)
 library(shinyjs)
 library(glue)
 library(readxl)
+library(yaml)
 
 # set output options
 shiny::devmode(devmode = TRUE)
