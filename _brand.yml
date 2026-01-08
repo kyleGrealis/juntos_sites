@@ -1,0 +1,25 @@
+meta:
+  name: Juntos Health Services
+  link:
+    home: https://juntos.northwestern.edu/
+
+color:
+  palette:
+    teal: "#91d2c6"      # Juntos brand teal
+    navy: "#2a3889"       # Juntos brand navy
+    orange: "#ff5500"     # Orange for alerts
+    dark: "#212529"       # Text color
+    pink: "#f34ba1"
+    light: "#f9f9f9"      # Light background
+  primary: teal
+  secondary: navy
+  danger: orange
+  foreground: dark
+  background: "#ffffff"
+
+typography:
+  fonts:
+    - family: Roboto
+      source: google
+  base: Roboto
+  headings: Roboto

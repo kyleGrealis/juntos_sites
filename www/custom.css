@@ -26,6 +26,9 @@
 
 .modal {
   z-index: 1055 !important;
+  display: flex;
+  align-items: center; /* Vertically center */
+  justify-content: center; /* Horizontally center, often good practice for modals */
 }
 
 /* Tighter checkbox spacing */
@@ -95,23 +98,26 @@
   border-color: #6c757d;
 }
 
-/* Modal container wrapper */
-.modal-container-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
+/* Reduce modal body padding */
+.modal-body {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
-/* Modal content block */
-.modal-content-block {
-  text-align: left;
+/* Adjust margins for content inside modal-container-wrapper */
+.modal-container-wrapper .modal-header-block {
+  margin-top: 0; /* Remove potential extra space at the top */
+  padding-top: 0.75rem; /* slightly less padding */
+  padding-bottom: 0.75rem; /* slightly less padding */
 }
 
-/* Modal services header */
-.modal-services-header {
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  margin-top: 0.75rem;
-  font-size: 1.1rem;
+.modal-container-wrapper .modal-services-header {
+  margin-top: 0.5rem; /* Reduce top margin */
+  margin-bottom: 0.25rem; /* Reduce bottom margin */
+}
+
+.modal-container-wrapper .mt-3 {
+  margin-top: 0.5rem !important; /* Reduce footnote margin top */
 }
 
 /* Language toggle styling */
@@ -131,5 +137,179 @@
 
 /* Fixed width for "Select a Site" button to prevent layout shift on language change */
 [data-i18n="select_site"] {
-  min-width: 195px;
+  /* width: 210px; */
+  min-width: 250px;
+  text-align: center;
+  background-color: #ff5500 !important;
+  border-color: #ff5500 !important;
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+[data-i18n="select_site"]:hover {
+  background-color: #e64d00 !important;
+  border-color: #e64d00 !important;
+  color: #ffffff !important;
+}
+
+/* Make all buttons uppercase like the real Juntos site */
+.btn,
+button {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ============================================
+   NAVBAR STYLING - CORRECTED
+   ============================================ */
+
+/* Logo styling */
+.navbar-logo {
+  height: 50px;
+  width: 50px;
+  margin-right: 12px;
+  border-radius: 4px;
+  object-fit: contain;
+}
+
+/* Navbar title text */
+.navbar-title-text {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2a3889;
+  line-height: 1 !important;  /* CRITICAL: Prevent extra vertical space */
+  white-space: nowrap;
+}
+
+/* MAIN FIX: Set explicit height and control all spacing */
+.navbar {
+  background-color: #91d2c6 !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  border-bottom: 2px solid #7ac4b8;
+
+  /* CRITICAL: Explicit height to constrain navbar */
+  height: 70px;
+  min-height: 70px;
+  max-height: 70px;
+  padding: 0 !important;
+
+  /* Top-level flex alignment for vertical centering */
+  display: flex;
+  align-items: center;
+}
+
+/* Container fluid inside navbar */
+.navbar .container-fluid {
+  display: flex !important;
+  align-items: center !important;
+  height: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Navbar brand element */
+.navbar-brand {
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  height: 100%;
+}
+
+/* Your custom brand wrapper */
+.navbar-brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 100%;
+}
+
+/* Remove padding from nav elements */
+.navbar .navbar-nav,
+.navbar .nav-tabs {
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+}
+
+.navbar .nav-link {
+  padding: 0 !important;
+  display: flex;
+  align-items: center;
+}
+
+/* Content area logo (replaces Healthcare Sites heading) */
+.content-logo {
+  object-fit: contain;
+  border-radius: 4px;
+  margin-left: 100px;
+  margin-bottom: 0;
+}
+
+/* Reduce spacing between logo/controls and table */
+.reactable {
+  margin-top: 0.5rem;
+}
+
+/* Override bslib-gap-spacing for the nav panel content only */
+.tab-pane.bslib-gap-spacing {
+  gap: 0rem !important;
+}
+
+.tab-pane.bslib-gap-spacing > * {
+  margin-bottom: 0rem !important;
+}
+
+/* Ensure footer is visible */
+.bslib-page-navbar > footer {
+  margin-top: 2rem;
+  padding: 1rem 0;
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+  color: #f34ba1 !important;
+  font-weight: 600;
+}
+
+.the-footer {
+  color: #f34ba1 !important;
+  text-transform: uppercase;
+}
+
+/* ============================================
+   FONT SCALING
+   ============================================ */
+
+/* Sidebar headings */
+.sidebar h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* Sidebar text and accordion */
+.sidebar .accordion-button,
+.sidebar .accordion-body,
+.sidebar .form-check-label,
+.sidebar .text-muted {
+  font-size: 0.9rem;
+}
+
+/* Main content headings */
+h4 {
+  font-size: 1.3rem;
+}
+
+/* ============================================
+   REACTABLE TABLE FONT RESET
+   ============================================ */
+
+/* Reset reactable to normal size (counteract font_scale) */
+.reactable {
+  font-size: 0.87rem;
+}
+
+.reactable thead {
+  font-size: 0.87rem;
+}
+
+.reactable .rt-search {
+  font-size: 0.9rem;
 }

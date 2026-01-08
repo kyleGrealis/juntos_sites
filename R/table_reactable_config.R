@@ -14,7 +14,7 @@ create_sites_reactable <- function(table_data, lang = "en") {
     striped = TRUE,
     compact = FALSE,
     # Dynamic height to fill viewport
-    height = "calc(100vh - 280px)",
+    height = "calc(100vh - 340px)",
     theme = reactableTheme(
       borderColor = "#dfe2e5",
       highlightColor = "#f0f5ff",
