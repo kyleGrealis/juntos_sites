@@ -26,9 +26,23 @@
 
 .modal {
   z-index: 1055 !important;
+  /* display: flex; */
+  /* align-items: center; Vertically center */
+  /* justify-content: center; Horizontally center, often good practice for modals */
+}
+
+.modal-dialog {
+  max-height: 80vh;
+  margin: 12.5vh auto;
   display: flex;
-  align-items: center; /* Vertically center */
-  justify-content: center; /* Horizontally center, often good practice for modals */
+  flex-direction: column;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  overflow: hidden;
 }
 
 /* Tighter checkbox spacing */
@@ -57,6 +71,10 @@
 .modal-site-info {
   margin-bottom: 0;
   font-size: 0.9rem;
+}
+
+.modal-site-info a {
+  color: #283a8e;
 }
 
 .modal-category-header {
@@ -100,6 +118,7 @@
 
 /* Reduce modal body padding */
 .modal-body {
+  overflow-y: auto;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
@@ -118,6 +137,10 @@
 
 .modal-container-wrapper .mt-3 {
   margin-top: 0.5rem !important; /* Reduce footnote margin top */
+}
+
+.modal-footer {
+  padding-top: 5px !important;
 }
 
 /* Language toggle styling */
@@ -270,6 +293,12 @@ button {
 }
 
 .the-footer {
+  color: #f34ba1 !important;
+  text-transform: uppercase;
+}
+.referral-text h4 {
+  margin-bottom: 0px;
+  padding-left: 4px;
   color: #f34ba1 !important;
   text-transform: uppercase;
 }
