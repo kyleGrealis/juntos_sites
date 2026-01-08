@@ -74,12 +74,16 @@ build_ui <- function(all_service_cols) {
 
         div(
           class = "d-flex justify-content-between align-items-center mb-1",
-          style = "height: 100px;",
-          tags$img(
-            src = "logos/juntos.png",
-            alt = "Juntos Health Services",
-            class = "content-logo",
-            height = "150px"
+          # style = "height: 100px;",
+          # tags$img(
+          #   src = "logos/juntos.png",
+          #   alt = "Juntos Health Services",
+          #   class = "content-logo",
+          #   height = "150px"
+          # ),
+          div(
+            class = "referral-text",
+            h4("Health Services Referral Database")
           ),
 
           # Right side: language toggle + Select a Site button
@@ -124,10 +128,10 @@ build_ui <- function(all_service_cols) {
         reactableOutput("sites_table")
       ),
 
-      footer = div(
-        class = "text-center py-3 the-footer",
-        "Health Services Referral Database"
-      )
+      # footer = div(
+      #   class = "text-center py-3 the-footer",
+      #   "Health Services Referral Database"
+      # )
     )
   )
 }
