@@ -26,9 +26,6 @@
 
 .modal {
   z-index: 1055 !important;
-  /* display: flex; */
-  /* align-items: center; Vertically center */
-  /* justify-content: center; Horizontally center, often good practice for modals */
 }
 
 .modal-dialog {
@@ -131,8 +128,8 @@
 }
 
 .modal-container-wrapper .modal-services-header {
-  margin-top: 0.5rem; /* Reduce top margin */
-  margin-bottom: 0.25rem; /* Reduce bottom margin */
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
 .modal-container-wrapper .mt-3 {
