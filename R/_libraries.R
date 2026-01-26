@@ -1,11 +1,12 @@
-library(tidyverse)
-library(shiny)
+library(brand.yml)
 library(bslib)
+library(glue)
 library(janitor)
 library(reactable)
-library(shinyjs)
-library(glue)
 library(readxl)
+library(shiny)
+library(shinyjs)
+library(tidyverse)
 library(yaml)
 
 # set output options
